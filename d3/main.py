@@ -42,19 +42,17 @@ def getBadgePriority(rucksacks):
     return priorities[r]
 
 def main():
-    lines = AdventReader().read_all("/Users/morgana/src/advent2022/d3/p1.txt")
+    lines = AdventReader.read_all("/Users/morgana/src/advent2022/d3/p1.txt")
     sum = 0
     for line in lines:
         sum += getPriority(line)
     print(f"p1: {sum}")
 
     i = 0
-    j = 2
     sum = 0
-    while j < len(lines):
-        sum += getBadgePriority(lines[i:j+1])
+    while i+2 < len(lines):
+        sum += getBadgePriority(lines[i:i+3])
         i += 3
-        j += 3
     print(f"p2: {sum}")
 
 
